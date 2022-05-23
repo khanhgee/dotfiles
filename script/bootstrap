@@ -1,4 +1,10 @@
-#! /bin/zsh
+#!/usr/bin/env bash
+
+# Install zimfw zsh framework and plugin manager
+sudo curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+
+# Install chezmoi and apply dotfiles
+sudo sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply khanhgee
 
 if [[ $HOSTNAME = *.github.net || -n $CODESPACES ]]; then
   if [[ -n $BASH && $- == *i* ]] && command -v zsh >/dev/null; then
@@ -7,9 +13,3 @@ if [[ $HOSTNAME = *.github.net || -n $CODESPACES ]]; then
 
   # export EMAIL=khanhgee@github.com
 fi
-
-# Install zimfw zsh framework and plugin manager
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-
-# Install chezmoi and apply dotfiles
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply khanhgee

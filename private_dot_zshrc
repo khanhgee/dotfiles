@@ -153,10 +153,7 @@ alias sourcey='source ~/.zshrc'
 alias brewery='brew update && brew upgrade && brew cleanup'
 alias dw='docker system prune -f && docker image prune -f && docker volume prune -f'
 alias dwa='docker system prune -af && docker image prune -af && docker volume prune -f'
-alias gac='git add . && git commit -m'
-alias gs='git status'
-alias gpo='git push -u origin'
-alias gl='git pull'
+
 
 # Local configs
 if [ -f ~/.local_configs ]; then

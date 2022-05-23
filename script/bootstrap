@@ -35,5 +35,5 @@ if [[ $USER = build && $HOME = /workspace ]]; then
 
   # rm -f ~/.gitconfig
 
-  cd ~/enterprise2
+  # (cd ~/enterprise2)
 fi

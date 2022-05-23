@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#! /bin/bash
 
 # Install zimfw zsh framework and plugin manager
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
@@ -6,10 +6,34 @@ curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | 
 # Install chezmoi and apply dotfiles
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply khanhgee
 
-if [[ $HOSTNAME = *.github.net || -n $CODESPACES ]]; then
-  if [[ -n $BASH && $- == *i* ]] && command -v zsh >/dev/null; then
-    exec zsh -l
-  fi
+[[ -n $CODESPACES ]] && set -x
 
-  # export EMAIL=khanhgee@github.com
+cd || exit 1
+
+USER=${USER:-$(id -un)}
+
+if [[ $HOSTNAME = *.github.net || -n $CODESPACES ]]; then
+  rm -vf .bash* .profile
+fi
+
+chsh_zsh() {
+  if [[ $(getent passwd "$USER") != */zsh ]]; then
+    sudo -n chsh -s /bin/zsh $USER
+  fi
+}
+
+if [[ -n $CODESPACES ]]; then
+  mv .zshrc .zshrc-codespaces
+  ln -nsfv /workspaces/.codespaces/.persistedshare/dotfiles .dotfiles
+  [[ -f .gitconfig ]] && mv -v .gitconfig .config/git/local
+  chsh_zsh
+fi
+
+# GHES
+if [[ $USER = build && $HOME = /workspace ]]; then
+  chsh_zsh
+
+  # rm -f ~/.gitconfig
+
+  cd ~/enterprise2
 fi

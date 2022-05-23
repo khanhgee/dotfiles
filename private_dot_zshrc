@@ -147,7 +147,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Other exports
-alias zshconfig="code ~/.zshrc"
+alias zshconfig="chezmoi edit --apply ~/.zshrc"
 alias sourcey='source ~/.zshrc'
 
 alias brewery='brew update && brew upgrade && brew cleanup'

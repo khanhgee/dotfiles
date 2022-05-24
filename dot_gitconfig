@@ -1,21 +1,33 @@
 # Local/private config goes in the include
 [include]
-path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
 [github]
-user = khanhgee
+  user = khanhgee
 [user]
-email = khanhgee@github.com
-name = Khanh Tran
+  email = khanhgee@github.com
+  name = Khanh Tran
 [alias]
-co = checkout
-gac = git add . && git commit -m
-gs = git status
-gpo = git push -u origin
-gl = git pull
+  co = checkout
 [color]
-diff = auto
-status = auto
-branch = auto
-ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [url "git@github.com:"]
-insteadOf = https://github.com/
+  insteadOf = https://github.com/
+[fetch]
+  prune = true
+[credential "https://github.com/"]
+    username = khanhgee
+[init]
+    defaultBranch = main
+[log]
+    decorate = true
+[pull]
+    rebase = true
+
+[push]
+    default = simple
+
+[rebase]
+    autosquash = true

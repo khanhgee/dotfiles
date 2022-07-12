@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Install zsh before all else
+sudo apt install zsh
+
 # Install zimfw zsh framework and plugin manager
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 

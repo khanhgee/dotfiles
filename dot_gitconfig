@@ -18,16 +18,16 @@
 [fetch]
   prune = true
 [credential "https://github.com/"]
-    username = khanhgee
+  username = khanhgee
 [init]
-    defaultBranch = main
+  defaultBranch = main
 [log]
-    decorate = true
+  decorate = true
 [pull]
-    rebase = true
-
+  rebase = true
 [push]
-    default = simple
-
+  default = simple
 [rebase]
-    autosquash = true
+  autosquash = true
+[core]
+  editor = vim

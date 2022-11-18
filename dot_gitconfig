@@ -26,7 +26,8 @@
 [pull]
   rebase = true
 [push]
-  default = simple
+  default = current
+  autoSetupRemote = true
 [rebase]
   autosquash = true
 [core]

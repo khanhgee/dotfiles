@@ -30,5 +30,3 @@
   autoSetupRemote = true
 [rebase]
   autosquash = true
-[core]
-  editor = vim

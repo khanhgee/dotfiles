@@ -1,0 +1,67 @@
+{
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorTheme": "One Dark Pro",
+  "explorer.confirmDragAndDrop": false,
+  "editor.fontFamily": "'Fira Code'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+
+  "typescript.suggest.completeFunctionCalls": true,
+  "javascript.suggest.completeFunctionCalls": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "debug.javascript.autoAttachFilter": "disabled",
+
+  "files.associations": {
+    ".env": "env",
+    "*.sh": "shellscript"
+  },
+
+  "[python]": {
+    "editor.defaultFormatter": null,
+    "editor.tabSize": 4,
+    "editor.formatOnType": true
+  },
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": [],
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "rubyTestExplorer.logpanel": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "redhat.telemetry.enabled": false,
+  "editor.inlineSuggest.enabled": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "gopls": {
+    "build.experimentalWorkspaceModule": true
+  },
+  "explorer.confirmDelete": false,
+  "[shellscript]": {
+    "editor.formatOnSave": false
+  },
+  "go.toolsManagement.autoUpdate": true
+}

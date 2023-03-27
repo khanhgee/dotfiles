@@ -9,9 +9,16 @@ curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | 
 # Install chezmoi and apply dotfiles
 sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply khanhgee
 
-[[ -n $CODESPACES ]] && set -x
+[ $(uname -s) = "Darwin" ] && export MACOS=1 && export UNIX=1
+[ $(uname -s) = "Linux" ] && export LINUX=1 && export UNIX=1
 
-cd || exit 1
+if [ $MACOS ]; then
+  VSCODE="$HOME/Library/Application Support/Code/User"
+elif [ $LINUX ]; then
+  VSCODE="$HOME/.config/Code/User"
+fi
+
+cp ../vscode-settings.json "$VSCODE/settings.json"
 
 USER=${USER:-$(id -un)}
 
@@ -40,3 +47,5 @@ if [[ $USER = build && $HOME = /workspace ]]; then
 
   # (cd ~/enterprise2)
 fi
+
+install-vscode-extensions

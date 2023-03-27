@@ -1,5 +1,7 @@
 #! /bin/bash
 
+DIR="$(cd "$(dirname "$0")" && pwd)"
+
 # Install zsh before all else
 sudo apt install zsh -y
 
@@ -48,4 +50,4 @@ if [[ $USER = build && $HOME = /workspace ]]; then
   # (cd ~/enterprise2)
 fi
 
-install-vscode-extensions
+"$DIR/install-vscode-extensions"

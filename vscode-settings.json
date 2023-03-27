@@ -67,10 +67,20 @@
   "remote.SSH.defaultExtensions": [
     "eamodio.gitlens",
     "aaron-bond.better-comments",
+    "bierner.github-markdown-preview",
+    "bierner.markdown-checkbox",
+    "bierner.markdown-emoji",
+    "bierner.markdown-footnotes",
+    "bierner.markdown-mermaid",
+    "bierner.markdown-preview-github-styles",
+    "bierner.markdown-yaml-preamble",
     "christian-kohler.path-intellisense",
     "GitHub.copilot",
     "golang.go",
+    "MaxMedia.go-prof",
     "ms-azuretools.vscode-docker",
-    "tamasfe.even-better-toml"
+    "tamasfe.even-better-toml",
+    "timonwong.shellcheck",
+    "foxundermoon.shell-format"
   ]
 }

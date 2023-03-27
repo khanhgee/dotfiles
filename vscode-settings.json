@@ -63,5 +63,14 @@
   "[shellscript]": {
     "editor.formatOnSave": false
   },
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
+  "remote.SSH.defaultExtensions": [
+    "eamodio.gitlens",
+    "aaron-bond.better-comments",
+    "christian-kohler.path-intellisense",
+    "GitHub.copilot",
+    "golang.go",
+    "ms-azuretools.vscode-docker",
+    "tamasfe.even-better-toml"
+  ]
 }

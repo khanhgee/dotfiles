@@ -50,4 +50,4 @@ if [[ $USER = build && $HOME = /workspace ]]; then
   # (cd ~/enterprise2)
 fi
 
-"$DIR/install-vscode-extensions"
+# "$DIR/install-vscode-extensions"

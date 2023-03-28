@@ -82,5 +82,7 @@
     "tamasfe.even-better-toml",
     "timonwong.shellcheck",
     "foxundermoon.shell-format"
-  ]
+  ],
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.osx": "zsh"
 }

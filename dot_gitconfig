@@ -13,8 +13,6 @@
   status = auto
   branch = auto
   ui = true
-[url "git@github.com:"]
-  insteadOf = https://github.com/
 [fetch]
   prune = true
 [credential "https://github.com/"]

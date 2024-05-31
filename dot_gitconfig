@@ -22,7 +22,7 @@
 [log]
   decorate = true
 [pull]
-  rebase = true
+  rebase = false
 [push]
   default = current
   autoSetupRemote = true

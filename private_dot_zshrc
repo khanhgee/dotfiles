@@ -152,17 +152,27 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 alias zshconfig="chezmoi edit --apply ~/.zshrc"
 alias sourcey='source ~/.zshrc'
 
-alias brewery='brew update && brew upgrade && brew cleanup'
+alias brewery='brew update && brew upgrade && brew cleanup && brew autoremove'
 alias dw='docker system prune -f && docker image prune -f && docker volume prune -f'
 alias dwa='docker system prune -af && docker image prune -af && docker volume prune -f'
 
-alias gac='git add . && git commit -m'
+alias gac='git add -A && git commit -m'
+alias gauc='git add -u && git commit -m'
 alias gs='git status'
 alias gpuo='git push -u origin'
 alias gpo='git push origin'
 alias gl='git pull'
 alias glo='git pull origin'
 
+alias golint='golangci-lint'
+
+function bpssh() {
+  ssh -A build@"$1"
+}
+
+function ghessh() {
+  ssh -p122 admin@"$1"
+}
 
 # Local configs
 if [ -f ~/.local_configs ]; then
@@ -182,13 +192,39 @@ fi
 
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
 export GOPATH=$HOME/go
+export PATH=$PATH:$(go env GOPATH)/bin
 export GOPROXY=https://goproxy.githubapp.com/mod,https://proxy.golang.org/,direct
 export GOPRIVATE=
 export GONOPROXY=
 export GONOSUMDB=github.com/github/*
+# export GOARCH=amd64
+
+echo 'eval "$(gh copilot alias -- zsh)"' >> ~/.zshrc
+
+function setup-certs() {
+  # place to put the combined certs
+  local cert_path="$HOME/.certs/all.pem"
+  local cert_dir=$(dirname "${cert_path}")
+  [[ -d "${cert_dir}" ]] || mkdir -p "${cert_dir}"
+  # grab all the certs
+  rm "${cert_path}"
+  security find-certificate -a -p /System/Library/Keychains/SystemRootCertificates.keychain >| "${cert_path}"
+  security find-certificate -a -p /Library/Keychains/System.keychain >> "${cert_path}"
+  # configure env vars for commonly used tools
+  export GIT_SSL_CAINFO="${cert_path}"
+  export AWS_CA_BUNDLE="${cert_path}"
+  export NODE_EXTRA_CA_CERTS="${cert_path}"
+  # add the certs for npm and yarn
+  # and since we have certs, strict-ssl can be true
+  npm config set -g cafile "${cert_path}"
+  npm config set -g strict-ssl true
+  # yarn config set cafile "${cert_path}"
+  # yarn config set strict-ssl true
+}
+setup-certs

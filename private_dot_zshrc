@@ -205,7 +205,8 @@ export GONOPROXY=
 export GONOSUMDB=github.com/github/*
 # export GOARCH=amd64
 
-echo 'eval "$(gh copilot alias -- zsh)"' >> ~/.zshrc
+gh extension install github/gh-copilot --force &> /dev/null
+eval "$(gh copilot alias -- zsh)"
 
 # function setup-certs() {
 #   # place to put the combined certs

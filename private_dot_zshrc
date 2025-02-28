@@ -205,6 +205,8 @@ export GONOPROXY=
 export GONOSUMDB=github.com/github/*
 # export GOARCH=amd64
 
+# terraform -install-autocomplete
+
 # gh extension install github/gh-copilot --force &> /dev/null
 # eval "$(gh copilot alias -- zsh)"
 

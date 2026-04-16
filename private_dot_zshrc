@@ -150,7 +150,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Other exports
 alias zshconfig="chezmoi edit --apply ~/.zshrc"
-alias sourcey='source ~/.zshrc'
+alias sourcey='exec zsh'
 
 alias brewery='brew update && brew upgrade && brew cleanup && brew autoremove'
 alias dw='docker system prune -f && docker image prune -f && docker volume prune -f'
@@ -195,9 +195,6 @@ fi
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
-
 export GOPATH=$HOME/go
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPROXY=https://goproxy.githubapp.com/mod,https://proxy.golang.org/,direct
@@ -205,6 +202,10 @@ export GOPRIVATE=
 export GONOPROXY=
 export GONOSUMDB=github.com/github/*
 # export GOARCH=amd64
+
+if [[ -n "${CODESPACES:-}" ]] && ! command -v gh >/dev/null 2>&1; then
+  sudo apt-get update && sudo apt-get install -y gh
+fi
 
 # terraform -install-autocomplete
 

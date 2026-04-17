@@ -159,6 +159,7 @@ alias dwa='docker system prune -af && docker image prune -af && docker volume pr
 alias gac='git add -A && git commit -m'
 alias gauc='git add -u && git commit -m'
 alias gs='git status'
+alias gp='git push'
 alias gpuo='git push -u origin'
 alias gpo='git push origin'
 alias gl='git pull'
